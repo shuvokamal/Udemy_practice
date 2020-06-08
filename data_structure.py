@@ -200,3 +200,13 @@ project_ids = {
 result= list(set(project_ids.values()))
 result.sort(reverse=True)
 print(result)
+
+# delete a key pair from the dictionary
+stats = {'site': 'e-smartdata.org', 'traffic': 100, 'type': 'organic'}
+del(stats['traffic'])
+print(stats)
+
+# print the value for a certain key, when not in the list, sets infinite:
+users = {'001': 'Mark', '002': 'Monica', '003': 'Jacob'}
+print(users['003'])
+print(users.get('004', 'indefinite'))
