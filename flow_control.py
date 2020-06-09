@@ -106,5 +106,89 @@ for idx, word in enumerate(words):
         result.append(word.lower())
 print(result)
 
+# from the set, take the values above 0.5
+probabilities = [0.21, 0.91, 0.34, 0.55, 0.76, 0.02]
+result = []
+for i in probabilities:
+    if i > 0.5:
+        result.append(i)
+print(result)
+
+# return 0 if probability is less than 0.5, return 1 if probability is greater than 0.5
+probabilities = [0.21, 0.91, 0.34, 0.55, 0.76, 0.02]
+result= []
+for i in probabilities:
+    if i > 0.5:
+        result.append(1)
+    else: result.append(0)
+print(result)
+
+# create a histogram frequency distribution:
+items = ['x', 'y', 'z', 'y', 'x', 'y', 'y', 'z', 'x']
+freq = {}
+for i in items:
+    if i not in freq.keys():
+        freq[i] = 1
+    else: freq[i] += 1
+print(freq)
+
+# create a list of words, lower, keep which has letter more than 6, remove punctuation
+text = """Python is powerful... and fast
+plays well with others
+runs everywhere
+is friendly & easy to learn
+is Open
+These are some of the reasons people who use Python would rather not use anything else"""
+
+text= text.lower()
+text= text.replace('...', '').replace('\n',' ')
+text= text.split(' ')
+new_text=[]
+
+for i in text:
+    if len(i)>6:
+        new_text.append(i)
+print(new_text)
+
+#another method:
+text = """Python is powerful... and fast
+plays well with others
+runs everywhere
+is friendly & easy to learn
+is Open
+These are some of the reasons people who use Python would rather not use anything else"""
+
+words = text.split()
+words = [word.lower() for word in words]
+words = [word.replace('.', '').replace(',', '') for word in words]
+words = [word for word in words if len(word) > 6]
+print(words)
+
+# select the indexes only with dow and s&p:
+indexes = [
+    'BOVESPA', 'DOW JONES COMP', 'DOW JONES INDU',
+    'DOW JONES TRANS', 'DOW JONES UTIL', 'IPC',
+    'IPSA', 'MERVAL', 'NASDAQ COMP', 'NASDAQ100',
+    'S&P500', 'S&P/TSX COMP'
+]
+
+indexes1 = []
+for i in indexes:
+    if i.startswith('DOW') or i.startswith('S&P'):
+        indexes1.append(i)
+print(indexes1)
+
+# another way:
+indexes = [
+    'BOVESPA', 'DOW JONES COMP', 'DOW JONES INDU',
+    'DOW JONES TRANS', 'DOW JONES UTIL', 'IPC',
+    'IPSA', 'MERVAL', 'NASDAQ COMP', 'NASDAQ100',
+    'S&P500', 'S&P/TSX COMP'
+]
+for i in indexes:
+    if 'DOW' in i or 'S&P' in i:
+        print(i)
+
+
 
 
