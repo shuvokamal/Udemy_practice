@@ -189,6 +189,180 @@ for i in indexes:
     if 'DOW' in i or 'S&P' in i:
         print(i)
 
+# iterate through dictionary and print the keys where value greater than 100
+
+gaming = {
+    '11B': 362.5,
+    'CDR': 297.0,
+    'CIG': 0.85,
+    'PLW': 318.0,
+    'TEN': 300.0
+}
+
+for k, v in gaming.items():
+    if v > 100:
+        print(k)
+
+# check if all elements are letters, those what are only letters, print like "Hello Jack!"
+names = ['Jack', 'Leon', 'Alice', '32-3c', 'Bob']
+
+for i in names:
+    if i.isalpha():
+        print(f"Hi {i}!")
+
+# compare two lists and check if they have at least one common element, if not return False, or return True:
+list1 = [1, 2, 0]
+list2 = [4, 5, 6, 1]
+result = False
+
+for i in list1:
+    if i in list2:
+        result = True
+        break
+print(result)
+
+# check if all elements are string, if yes- print True, if not- print False
+hashtags = ['holiday', 'sport', 'fit', None, 'fashion']
+result = True
+for i in hashtags:
+    if not isinstance(i, str):
+        result = False
+        break
+
+print(result)
+
+#check if a number is a prime number:
+number = 13
+for i in range(2, number):
+    if number % i == 0:
+        print(f"{number} is not a prime number")
+        break
+
+    else: print(f"{number} is a prime number")
+    break
+
+#another method:
+number = 13
+
+if number > 1:
+    for i in range(2, number):
+        if number % i == 0:
+            print(f'{number} - not a prime number')
+            break
+    else:
+        print(f'{number} - prime number')
+else:
+    print(f'{number} - not a prime number')
+# change USD to PLN, multiply with 40 when changed
+gaming = {
+    '11B': [362.5, 'PLN'],
+    'CDR': [74.25, 'USD'],
+    'CIG': [0.85, 'PLN'],
+    'PLW': [79.5, 'USD'],
+    'TEN': [300.0, 'PLN']
+}
+
+for k,v in gaming.items():
+    if v[1] == 'USD':
+        v[1] = 'PLN'
+        v[0] = v[0]*4
+print(gaming)
+
+# another way:
+gaming = {
+    '11B': [362.5, 'PLN'],
+    'CDR': [74.25, 'USD'],
+    'CIG': [0.85, 'PLN'],
+    'PLW': [79.5, 'USD'],
+    'TEN': [300.0, 'PLN']
+}
+
+for k,v in gaming.items():
+    if v[1] == 'PLN':
+        continue
+    v[1] = 'PLN'
+    v[0] = v[0]*4
+print(gaming)
+
+#print the names only
+names = ['Jack', 'Leon', 'Alice', None, 'Bob']
+result= []
+for i in names:
+    if not isinstance(i, str):
+        continue
+    result.append(i)
+print(result)
+
+#another method:
+names = ['Jack', 'Leon', 'Alice', None, 'Bob']
+
+for name in names:
+    if name is None:
+        continue
+    print(name)
+
+# first 10 prime numbers separated by comma by using break
+
+counter = 0
+number = 2
+prime = []
+
+while counter < 10:
+    for i in range(2, number):
+        if number % i == 0:
+            break
+    else:
+        prime.append(str(number))
+        counter += 1
+    number += 1
+
+print(','.join(prime))
 
 
+# find how long it will take to get the future value
+n = 1
+pv = 1000
+r = 0.04
+fv = pv * (1 + r)
+while fv <= 2000:
+    fv= fv* (1+r)
+    n +=1
+print(f"future value is {fv: .2f} in {n} years")
+
+#scholastic gradiant descent:
+max_iters = 10000
+iters = 0
+w_0 = -1
+previous_step_size = 1
+learning_rate = 0.01
+precision = 0.000001
+derivative = lambda w: 2 * w - 4
+
+while previous_step_size> precision and iters< max_iters:
+    w_prev = w_0
+    w_0 = w_0 - learning_rate * derivative(w_prev)
+    previous_step_size = abs(w_0 - w_prev)
+    iters += 1
+
+print(f'A local minimum in point: {w_0:.2f}')
+
+# check if a number in the list:
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 7
+start = 0
+end = len(numbers) - 1
+
+result= "Not Found"
+
+while start <= end:
+    mid = int((start+end)/2)
+    if numbers[mid]== target:
+        result= "Found"
+        break
+    else:
+        if numbers[mid] < target:
+            start = mid + 1
+        else: start = mid-1
+
+print(result)
 
