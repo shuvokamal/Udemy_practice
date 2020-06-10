@@ -57,4 +57,27 @@ max_vol = max([val[1] for val in data])
 max_date = list(filter(lambda val: val[1] == max_vol, data))[0][0]
 print(max_date)
 
+# save all the even numbers in a file, each in a new line:
+num = []
+for i in range(2,21):
+    if i%2==0:
+        num.append(i)
+with open("num.txt", 'w') as file:
+    for even in num:
+        file.write(str(even) + '\n')
 
+# save this json file with pretty print, setting indent 4
+import json
+
+stocks = {'PLW': ['Playway', 350], 'BBT': ['Boombit', 22]}
+
+with open("sotcks.json", 'w') as file:
+    json.dump(stocks,file, indent = 4)
+
+# Two lists given, save them in a csv file
+headers = ['user_id', 'amount']
+users = [['001', '1400'], ['004', '1300'], ['007', '900']]
+with open('adding.text', 'w') as file:
+    file.write(','.join(headers) + '\n')
+    for user in users:
+        file.write(','.join(user) + '\n')
