@@ -95,10 +95,13 @@ print(data)
 
 # list is given, convert it to a dictionary.
 indexes = ['WIG20', 'mWIG40', 'WIG80']
-dict = {idx: i for idx in range(0, len(indexes)) for i in indexes}
-print(dict)
+dict = {idx: i for i in indexes for idx in range(0, len(indexes)) } # don't work
+print(dict) # don't work
 
+# alternative
 indexes = ['WIG20', 'mWIG40', 'sWIG80']
 data = {key: val for key, val in enumerate(indexes)}
 print(data)
+
+
 
